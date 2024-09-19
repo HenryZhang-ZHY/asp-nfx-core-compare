@@ -14,5 +14,12 @@ namespace app.Controllers
 		{
 			return server.Features.Get<IIISEnvironmentFeature>().ApplicationId;
 		}
+
+		[Route("app-domain-app-path")]
+		[HttpGet]
+		public string GetAppDomainAppPath(IServer server)
+		{
+			return server.Features.Get<IIISEnvironmentFeature>().ApplicationPhysicalPath;
+		}
 	}
 }
