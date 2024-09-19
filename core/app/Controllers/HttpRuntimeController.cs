@@ -10,9 +10,12 @@ namespace app.Controllers
 	{
 		[Route("app-domain-id")]
 		[HttpGet]
-		public string GetAppDomainId(IServer server)
+		public IActionResult GetAppDomainId(IServer server)
 		{
-			return server.Features.Get<IIISEnvironmentFeature>().ApplicationId;
+			/*
+			 *	Only available in .NET Framework
+			 */
+			return NotFound();
 		}
 
 		[Route("app-domain-app-path")]
@@ -20,6 +23,13 @@ namespace app.Controllers
 		public string GetAppDomainAppPath(IServer server)
 		{
 			return server.Features.Get<IIISEnvironmentFeature>().ApplicationPhysicalPath;
+		}
+
+		[Route("app-domain-app-id")]
+		[HttpGet]
+		public string GetAppDomainAppId(IServer server)
+		{
+			return server.Features.Get<IIISEnvironmentFeature>().ApplicationId;
 		}
 	}
 }

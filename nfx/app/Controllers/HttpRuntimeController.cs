@@ -17,5 +17,11 @@ namespace app.Controllers
 		{
 			return HttpRuntime.AppDomainAppPath;
 		}
+
+		[Route("app-domain-app-id")]
+		public string GetAppDomainAppId()
+		{
+			return HttpRuntime.AppDomainAppId;
+		}
 	}
 }
